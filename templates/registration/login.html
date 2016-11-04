@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}<title>Login</title>>{% endblock %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content %}
+
+<body>
+ <div class="login page">
+     <div class="header-fixed">
+         <ul class="login page-right" style="list-style-type:none">
+         <li class="login page-right">
+         <a href="login.html">Login</a>
+         </li><br>
+         <br>
+         <li class="login page-right">
+         <a href="/accounts/register/">Sign up</a>
+         </li><br>
+         <br>
+         </ul>
+     </div><br/>
+     <br/>
+     <div class="form">
+         <div class="login">
+             <h1>Login Page</h1>
+             <form action="" method="POST">{% csrf_token %}
+             <label for="id_username">Username:</label>
+              <input type="text" name="username"  id="id_username"placeholder="User Name" value=""><br>
+             <br>
+             <label for="id_password">Password:</label>
+             <input type="password" name="password" id="id_password" placeholder="password" value=""><br>
+             <br>
+             <!--<button type="button">Login</button><br>-->
+             <input type="submit" value="login">
+             <input type="hidden" name="next" value="{{ next }}" />
+             <br>
+             </form>
+             <!--<p class="message">Forgot password ?-->
+             <p>{% trans "Forgot your password?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.</p>
+             <p>{% trans "Not a member?" %} <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+
+         </div>
+     </div>
+  </div>
+</body>
+
+{% endblock %}

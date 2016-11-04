@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}<title>Register</title>>{% endblock %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content %}
+
+<body>
+ <div class="registration page">
+     <div class="form">
+        <form method="post" action="">
+                {% csrf_token %}
+         <div class="registration" >
+             <h1>Registration Page</h1>
+             <label class="required" for="id_username">Username:</label> 
+             <input type="text" id="id_username"placeholder="User Name" name="username" value="">
+             <!--<p class="message">Note:Required 150 characters or fewer,digits and @/./+/-/_ only.</p> -->
+             <label class="required" for="id_email">Email:</label> 
+             <input type="text" id="id_email" name="email" placeholder="Email" value="">
+             <!--<p class="message">Note:Enter your email address</p>-->
+             <label class="required" for="id_password1">Password:</label>
+             <input type="password" id="id_password1" name="password1" placeholder="password" value=""><br>
+             <br>
+              <label class="required" for="id_password2">Password confirmation:</label> 
+             <input type="password" id="id_password2" name="password2" placeholder="password confirmation" value="">
+            <!-- <p class="message">Note:enter the same password as before,for verification.</p>-->
+             <div align="center">
+                <input type="submit" class="btn btn-primary" value="{% trans 'Signup' %}" />
+                </div>
+         </div> 
+     </form>
+     </div> 
+</div>  
+</body>
+{% endblock %}        
+             
+     
+    
